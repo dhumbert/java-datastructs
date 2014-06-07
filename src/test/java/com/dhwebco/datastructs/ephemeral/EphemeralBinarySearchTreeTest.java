@@ -1,6 +1,6 @@
 package com.dhwebco.datastructs.ephemeral;
 
-import com.dhwebco.datastructs.Node;
+import com.dhwebco.datastructs.nodes.BSTNode;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -24,11 +24,11 @@ public class EphemeralBinarySearchTreeTest {
         bst.add(7, "Lorem");
         bst.add(45, "Ipsum");
 
-        Node<Integer, String> found = bst.get(7);
+        BSTNode<Integer, String> found = bst.get(7);
         assertEquals(new Integer(7), found.getKey());
         assertEquals("Lorem", found.getValue());
 
-        Node<Integer, String> notFound = bst.get(123);
+        BSTNode<Integer, String> notFound = bst.get(123);
         assertNull(notFound);
     }
 
@@ -40,7 +40,7 @@ public class EphemeralBinarySearchTreeTest {
         bst.add(7, "Lorem");
         bst.add(45, "Ipsum");
 
-        Node<Integer, String> found = bst.get(7);
+        BSTNode<Integer, String> found = bst.get(7);
         assertEquals(new Integer(1), found.getParent().getKey());
     }
 }

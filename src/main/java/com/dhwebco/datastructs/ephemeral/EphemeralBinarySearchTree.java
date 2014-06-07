@@ -1,16 +1,16 @@
 package com.dhwebco.datastructs.ephemeral;
 
-import com.dhwebco.datastructs.Node;
+import com.dhwebco.datastructs.nodes.BSTNode;
 
 /**
  * Standard, unbalanced binary search tree implementation.
  */
 public class EphemeralBinarySearchTree<KEY extends Comparable<? super KEY>, VALUE> {
-    private Node<KEY, VALUE> root;
+    private BSTNode<KEY, VALUE> root;
     private int size;
 
     public void add(KEY key, VALUE value) {
-        Node<KEY, VALUE> node = new Node<>(key, value);
+        BSTNode<KEY, VALUE> node = new BSTNode<>(key, value);
 
         if (root == null) {
             root = node;
@@ -21,7 +21,7 @@ public class EphemeralBinarySearchTree<KEY extends Comparable<? super KEY>, VALU
         size++;
     }
 
-    private void add(Node<KEY, VALUE> subRoot, Node<KEY, VALUE> newNode) {
+    private void add(BSTNode<KEY, VALUE> subRoot, BSTNode<KEY, VALUE> newNode) {
         if (subRoot != null) {
             int cmp = subRoot.getKey().compareTo(newNode.getKey());
             if (cmp < 0) {
@@ -42,11 +42,11 @@ public class EphemeralBinarySearchTree<KEY extends Comparable<? super KEY>, VALU
         }
     }
 
-    public Node<KEY, VALUE> get(KEY key) {
+    public BSTNode<KEY, VALUE> get(KEY key) {
         return get(root, key);
     }
 
-    private Node<KEY, VALUE> get(Node<KEY, VALUE> subRoot, KEY key) {
+    private BSTNode<KEY, VALUE> get(BSTNode<KEY, VALUE> subRoot, KEY key) {
         if (subRoot != null) {
             int cmp = subRoot.getKey().compareTo(key);
             if (cmp == 0) {

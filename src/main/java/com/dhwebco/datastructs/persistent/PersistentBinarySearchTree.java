@@ -1,6 +1,6 @@
 package com.dhwebco.datastructs.persistent;
 
-import com.dhwebco.datastructs.Node;
+import com.dhwebco.datastructs.nodes.BSTNode;
 
 /**
  * Persistent, unbalanced binary search tree implementation.
@@ -8,12 +8,12 @@ import com.dhwebco.datastructs.Node;
  * @param <VALUE>
  */
 public class PersistentBinarySearchTree<KEY extends Comparable<? super KEY>, VALUE> {
-    private Node<KEY, VALUE> root;
+    private BSTNode<KEY, VALUE> root;
     private int size;
 
     public PersistentBinarySearchTree<KEY, VALUE> add(KEY key, VALUE value) {
         PersistentBinarySearchTree<KEY, VALUE> newTree = new PersistentBinarySearchTree<>();
-        Node<KEY, VALUE> node = new Node<>(key, value);
+        BSTNode<KEY, VALUE> node = new BSTNode<>(key, value);
 
         if (root == null) {
             newTree.root = node;
@@ -27,9 +27,9 @@ public class PersistentBinarySearchTree<KEY extends Comparable<? super KEY>, VAL
         return newTree;
     }
 
-    private void add(Node<KEY, VALUE> subRoot, Node<KEY, VALUE> newNode) {
+    private void add(BSTNode<KEY, VALUE> subRoot, BSTNode<KEY, VALUE> newNode) {
         if (subRoot != null) {
-            Node<KEY, VALUE> clonedNode = (subRoot == root) ? root : subRoot.clone();
+            BSTNode<KEY, VALUE> clonedNode = (subRoot == root) ? root : subRoot.clone();
             int cmp = subRoot.getKey().compareTo(newNode.getKey());
             if (cmp < 0) {
                 if (clonedNode.getRchild() == null) {
@@ -44,7 +44,7 @@ public class PersistentBinarySearchTree<KEY extends Comparable<? super KEY>, VAL
                     if (subRoot.getParent() != null) {
                         subRoot.getParent().setRchild(clonedNode);
                     }
-                    Node<KEY, VALUE> rchild = clonedNode.getRchild();
+                    BSTNode<KEY, VALUE> rchild = clonedNode.getRchild();
                     rchild.setParent(clonedNode);
                     clonedNode.setRchild(rchild);
                     add(clonedNode.getRchild(), newNode);
@@ -62,7 +62,7 @@ public class PersistentBinarySearchTree<KEY extends Comparable<? super KEY>, VAL
                     if (subRoot.getParent() != null) {
                         subRoot.getParent().setLchild(clonedNode);
                     }
-                    Node<KEY, VALUE> lchild = clonedNode.getLchild();
+                    BSTNode<KEY, VALUE> lchild = clonedNode.getLchild();
                     lchild.setParent(clonedNode);
                     clonedNode.setLchild(lchild);
                     add(clonedNode.getLchild(), newNode);
@@ -71,11 +71,11 @@ public class PersistentBinarySearchTree<KEY extends Comparable<? super KEY>, VAL
         }
     }
 
-    public Node<KEY, VALUE> get(KEY key) {
+    public BSTNode<KEY, VALUE> get(KEY key) {
         return get(root, key);
     }
 
-    private Node<KEY, VALUE> get(Node<KEY, VALUE> subRoot, KEY key) {
+    private BSTNode<KEY, VALUE> get(BSTNode<KEY, VALUE> subRoot, KEY key) {
         if (subRoot != null) {
             int cmp = subRoot.getKey().compareTo(key);
             if (cmp == 0) {
