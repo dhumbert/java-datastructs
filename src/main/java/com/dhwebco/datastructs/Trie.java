@@ -1,4 +1,4 @@
-package com.dhwebco.datastructs.ephemeral;
+package com.dhwebco.datastructs;
 
 import com.dhwebco.datastructs.nodes.TrieNode;
 
@@ -15,10 +15,10 @@ import java.util.List;
  *
  * I took some inspiration from https://community.oracle.com/thread/2070706.
  */
-public class EphemeralTrie {
+public class Trie {
     private TrieNode root;
 
-    public EphemeralTrie() {
+    public Trie() {
         root = new TrieNode();
     }
 

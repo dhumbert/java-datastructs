@@ -1,15 +1,16 @@
-package com.dhwebco.datastructs.ephemeral;
+package com.dhwebco.datastructs;
 
+import com.dhwebco.datastructs.Trie;
 import org.junit.Test;
 
 import java.util.List;
 
 import static org.junit.Assert.*;
 
-public class EphemeralTrieTest {
+public class TrieTest {
     @Test
     public void testAdd() {
-        EphemeralTrie trie = new EphemeralTrie();
+        Trie trie = new Trie();
         trie.add("Devin", "Humbert");
         trie.add("Developer", "Jones");
         trie.add("John", "Smith");
@@ -18,13 +19,13 @@ public class EphemeralTrieTest {
 
     @Test(expected = IndexOutOfBoundsException.class)
     public void testInvalidKey() {
-        EphemeralTrie trie = new EphemeralTrie();
+        Trie trie = new Trie();
         trie.add("\t", "lorem");
     }
 
     @Test
     public void testGet() {
-        EphemeralTrie trie = new EphemeralTrie();
+        Trie trie = new Trie();
         trie.add("Devin", "Humbert");
         trie.add("Developer", "Jones");
         trie.add("diva", "macintyre");
@@ -40,7 +41,7 @@ public class EphemeralTrieTest {
 
     @Test
     public void testGetAll() {
-        EphemeralTrie trie = new EphemeralTrie();
+        Trie trie = new Trie();
         trie.add("Devin", "Humbert");
         trie.add("Developer", "Jones");
         trie.add("diva", "macintyre");
@@ -58,7 +59,7 @@ public class EphemeralTrieTest {
 
     @Test
     public void testGetWithPrefix() {
-        EphemeralTrie trie = new EphemeralTrie();
+        Trie trie = new Trie();
         trie.add("Devin", "Humbert");
         trie.add("Developer", "Jones");
         trie.add("diva", "macintyre");

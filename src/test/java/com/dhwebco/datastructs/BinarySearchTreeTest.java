@@ -1,14 +1,15 @@
-package com.dhwebco.datastructs.ephemeral;
+package com.dhwebco.datastructs;
 
+import com.dhwebco.datastructs.BinarySearchTree;
 import com.dhwebco.datastructs.nodes.BSTNode;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class EphemeralBinarySearchTreeTest {
+public class BinarySearchTreeTest {
     @Test
     public void testAddAndSize() {
-        EphemeralBinarySearchTree<Integer, String> bst = new EphemeralBinarySearchTree<>();
+        BinarySearchTree<Integer, String> bst = new BinarySearchTree<>();
         bst.add(12, "Devin");
         bst.add(1, "Humbert");
         bst.add(7, "Lorem");
@@ -18,7 +19,7 @@ public class EphemeralBinarySearchTreeTest {
 
     @Test
     public void testGet() {
-        EphemeralBinarySearchTree<Integer, String> bst = new EphemeralBinarySearchTree<>();
+        BinarySearchTree<Integer, String> bst = new BinarySearchTree<>();
         bst.add(12, "Devin");
         bst.add(1, "Humbert");
         bst.add(7, "Lorem");
@@ -34,7 +35,7 @@ public class EphemeralBinarySearchTreeTest {
 
     @Test
     public void testParent() {
-        EphemeralBinarySearchTree<Integer, String> bst = new EphemeralBinarySearchTree<>();
+        BinarySearchTree<Integer, String> bst = new BinarySearchTree<>();
         bst.add(12, "Devin");
         bst.add(1, "Humbert");
         bst.add(7, "Lorem");

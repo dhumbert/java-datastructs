@@ -1,11 +1,11 @@
-package com.dhwebco.datastructs.ephemeral;
+package com.dhwebco.datastructs;
 
 import com.dhwebco.datastructs.nodes.BSTNode;
 
 /**
  * Standard, unbalanced binary search tree implementation.
  */
-public class EphemeralBinarySearchTree<KEY extends Comparable<? super KEY>, VALUE> {
+public class BinarySearchTree<KEY extends Comparable<? super KEY>, VALUE> {
     private BSTNode<KEY, VALUE> root;
     private int size;
 
